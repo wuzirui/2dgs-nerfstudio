@@ -1,0 +1,3 @@
+[submodule "diff-surfel-rasterization"]
+	path = diff-surfel-rasterization
+	url = git@github.com:wuzirui/diff-surfel-rasterization.git

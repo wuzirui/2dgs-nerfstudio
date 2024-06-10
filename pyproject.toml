@@ -1,0 +1,38 @@
+[project]
+name = "surfel-splat"
+description = "2DGS in nerfstudio"
+version = "0.1.0"
+
+dependencies = ["nerfstudio >= 1.0.0"] 
+
+
+[project.optional-dependencies]
+# Development packages
+dev = [
+    "black[jupyter]==23.3.0",
+    "pre-commit==3.3.2",
+    "pytest==7.1.2",
+    "pytest-xdist==2.5.0",
+    "typeguard==2.13.3",
+    "ruff==0.0.267",
+    "sshconf==0.2.5",
+    "pycolmap>=0.3.0",  # NOTE: pycolmap==0.3.0 is not available on newer python versions
+    "diffusers==0.16.1",
+    "opencv-stubs==0.0.7",
+    "transformers==4.29.2",
+    "pyright==1.1.331",
+    "ptlflow",
+]
+
+[tool.setuptools.packages.find]
+include = ["surfel-splatting"]
+
+# register the entry point of the method here:
+[project.entry-points.'nerfstudio.method_configs']
+surfel_splat = 'surfel-splatting.surfel_splat:SurfelSplat'
+
+# register the entry point of the dataparser
+[project.entry-points.'nerfstudio.dataparser_configs']
+
+[tool.ruff]
+ignore = ["E501", "F841"]
